@@ -9,10 +9,12 @@ import androidx.core.view.WindowInsetsCompat
 import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlin.random.Random
+import android.view.animation.AnimationUtils
 
 class MainActivity : AppCompatActivity() {
 
     private var pushCount = 0
+    private var isAnimating = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,14 +24,17 @@ class MainActivity : AppCompatActivity() {
         val layout = findViewById<ConstraintLayout>(R.id.main)
         val button = findViewById<Button>(R.id.big_button)
 
+        // Loading animation resource
+        val scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.button_scale)
+
         button.setOnClickListener {
             pushCount++
 
             //button text
             val text = if (pushCount == 1) {
-                "You have pushed me 1 time!"
+                getString(R.string.push_single)
             } else {
-                "You have pushed me $pushCount times!"
+                getString(R.string.push_multiple, pushCount)
             }
             button.text = text
 
@@ -48,6 +53,15 @@ class MainActivity : AppCompatActivity() {
                 Random.nextInt(256)
             )
             button.setTextColor(textColor)
+
+            //Start or stop the animation
+            if (isAnimating) {
+                button.clearAnimation()
+                isAnimating = false
+            } else {
+                button.startAnimation(scaleAnimation)
+                isAnimating = true
+            }
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(layout) { v, insets ->

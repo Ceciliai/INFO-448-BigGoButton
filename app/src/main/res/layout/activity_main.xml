@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#36BC38"
-        android:text="Push Me!"
+        android:text="@string/button_label"
         android:textColor="#9D1111"
         android:textSize="40dp"
         android:textStyle="italic"
