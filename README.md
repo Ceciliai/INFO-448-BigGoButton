@@ -1,7 +1,7 @@
 # INFO-448-BigGoButton
 Create an app that consists of nothing but a giant button filling the screen
 
-Details
+**Details**
 The entire screen should consist of a single pushbutton, labeled "Push Me!"
 
 The button should also have a green background, red text, the button text should be 40dp in size and italicized
@@ -18,14 +18,14 @@ oh, and the background color should change to a random color
 
 and the text color should randomly change, too
 
-Goals
+**Goals**
 Experiment with setting properties in resources
 
 Experiment with setting properties from code
 
 Experiment with adding an event handler
 
-Grading (5 pts)
+**Grading (5 pts)**
 repo should be called 'biggobutton'
 
 2 pts for the button's properties set correctly (size, font, etc)
@@ -34,7 +34,7 @@ repo should be called 'biggobutton'
 
 1 pt for the text changing correctly ("time" vs "times")
 
-Extra credit
+**Extra credit**
 1 pt if all constant strings are stored as string resources
 
 1 pt for applying an animation to the button (or the text inside it)
